@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>servlet_demo</display-name>
+
+	<!-- Servlet 异常处理 -->
+	<servlet>
+		<servlet-name>ErrorHandler</servlet-name>
+		<servlet-class>com.servlet.demo.ErrorHandler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ErrorHandler</servlet-name>
+		<url-pattern>/ErrorHandler</url-pattern>
+	</servlet-mapping>
+
+	<!-- Servlet 过滤器 -->
+	<filter>
+		<filter-name>FilterDemo</filter-name>
+		<filter-class>com.servlet.demo.FilterDemo</filter-class>
+		<init-param>
+			<param-name>Site</param-name>
+			<param-value>过滤器初始化参数</param-value>
+		</init-param>
+	</filter>
+	
+	<!-- Servlet 过滤器  利用@WebServlet("/ServletDemo")注解，不需要再写<servlet-mapping>-->
+	<servlet>
+		<servlet-name>ServletDemo</servlet-name>
+		<servlet-class>com.servlet.demo.ServletDemo</servlet-class>
+	</servlet>
+
+	<!-- 实现Servlet接口建立Servlet -->
+	<servlet>
+		<servlet-name>ServletDemo1</servlet-name>
+		<servlet-class>com.servlet.demo.ServletDemo1</servlet-class>
+		<init-param>
+			<param-name>default</param-name>
+			<param-value>初始化参数</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDemo1</servlet-name>
+		<url-pattern>/ServletDemo1</url-pattern>
+	</servlet-mapping>
+	<!-- 继承GenericServlet建立Servlet -->
+	<servlet>
+		<servlet-name>ServletDemo2</servlet-name>
+		<servlet-class>com.servlet.demo.ServletDemo2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDemo2</servlet-name>
+		<url-pattern>/ServletDemo2</url-pattern>
+	</servlet-mapping>
+	
+	 <!-- 继承HttpServlet建立Servlet -->
+	<servlet>
+		<servlet-name>ServletDemo3</servlet-name>
+		<servlet-class>com.servlet.demo.ServletDemo3</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDemo3</servlet-name>
+		<url-pattern>/ServletDemo3</url-pattern>
+	</servlet-mapping>
+
+	<!-- 异常抓取之后到ErrorHandler中处理 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/ErrorHandler</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/ErrorHandler</location>
+	</error-page>
+	
+</web-app>
