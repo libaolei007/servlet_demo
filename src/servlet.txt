@@ -1,0 +1,52 @@
+1.Servlet简介
+	Servlet是JavaWeb的三大组件（Servlet，Filter,Listener）组件之一，它属于动态资源，可以动态创建网页，Servlet是运行在服务器上的java程序用来处理客户端请求并作出响应。
+2.Servlet任务
+	读取客户端（浏览器）发送的显式的数据，网页表单或自定义Http客户端程序表单
+	读取客户端（浏览器）发送的隐式的Http请求数据，包括cookies、媒体类型和浏览器能理解的压缩格式等等
+	处理数据并生成结果，这个过程可能需要访问数据库，执行RMI或CORDB调用，做出对应的响应
+	发送显式的数据（即文档）到客户端（浏览器），包括文本文件（HTNL和XML）、二进制文件（GIF图像）、Excel等。
+	发送隐式的 HTTP 响应到客户端（浏览器），这包括告诉浏览器或其他客户端被返回的文档类型（例如 HTML），设置 cookies 和缓存参数，以及其他类似的任务。
+3.实现Servlet的三种方式
+	实现Servlet接口
+	继承GenericServlet，很少使用
+	继承HttpServlet
+4.Servlet生命周期
+	init()生命周期方法:当Servlet第一次被创建对象时执行该方法,该方法在整个生命周期中只执行一次
+	service()生命周期方法:对客户端响应的方法,该方法会被执行多次，每次请求该servlet都会执行该方法
+	destroy()生命周期方法:当Servlet被销毁时执行该方法 当停止tomcat时也就销毁的servlet。
+5.Servlet表单数据
+	get方法请求格式：http://www.test.com/hello?key1=value1&key2=value2
+	post方法请求格式：post请求把信息作为一个单独的消息。消息以标准输出的形式传到后台程序，可以解析和使用这些标准输出。
+	getParameter()：您可以调用 request.getParameter() 方法来获取表单参数的值。
+	Enumeration paramNames = request.getParameterNames()：得到当前请求中的所有参数的完整列表。
+	String[] paramValues = request.getParameterValues(paramName)：如果参数出现一次以上，则调用该方法，并返回多个值，例如复选框。
+6.Filter过滤器
+	在客户端的请求访问后端资源之前，拦截这些请求。
+	在服务器的响应发送回客户端之前，处理这些响应。
+	实现javax.servlet.Filter接口，一般把Filter配置在所有的Servlet之前。
+	init(FilterConfig filterConfig)在web服务启动时，创建Filter对象，并调用init方法（filter对象只会创建一次，init方法也只会执行一次）
+	doFilter (ServletRequest, ServletResponse, FilterChain)完成实际的过滤操作，Servlet容器将先调用过滤器的doFilter方法。FilterChain用户访问后续过滤器。
+7.Servlet异常处理
+	当Servlet抛出一个异常时，Web 容器在使用了 exception-type 元素的 web.xml 中搜索与抛出异常类型相匹配的配置。
+	必须在 web.xml 中使用 error-page 元素来指定对特定异常 或 HTTP 状态码 作出相应的 Servlet调用
+	javax.servlet.error.status_code该属性给出状态码，状态码可被存储，并在存储为 java.lang.Integer数据类型后可被分析。
+	javax.servlet.error.exception_type该属性给出异常类型的信息，异常类型可被存储，并在存储为 java.lang.Class 数据类型后可被分析。
+	javax.servlet.error.message该属性给出确切错误消息的信息，信息可被存储，并在存储为 java.lang.String 数据类型后可被分析。
+	javax.servlet.error.request_uri该属性给出有关 URL 调用 Servlet 的信息，信息可被存储，并在存储为 java.lang.String 数据类型后可被分析。
+	javax.servlet.error.exception该属性给出异常产生的信息，信息可被存储，并在存储为 java.lang.Throwable 数据类型后可被分析。
+	javax.servlet.error.servlet_name该属性给出 Servlet 的名称，名称可被存储，并在存储为 java.lang.String 数据类型后可被分析。
+8.		
+
+
+
+
+
+
+
+
+
+
+
+
+
+

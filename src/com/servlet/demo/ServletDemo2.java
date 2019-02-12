@@ -8,7 +8,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * @description: 继承GenericServlet
+ * @description: 继承GenericServlet，很少使用
  * @author: libl
  * @date: 2018年10月23日 下午2:58:08
  */
