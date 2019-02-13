@@ -51,7 +51,12 @@
 				</session-config>
 	手动销毁Session：session.invalidate()/setMaxInactiveInterval(0)
 	实例：session校验图片验证码
-10.
+10.Servlet文件上传
+	主要注意点：表单method属性为POST方法
+		 	  表单enctype属性应该设置为multipart/form-data
+	实例：文件上传
+11.Servlet重定向和转发的区别
+				 
 
 
 

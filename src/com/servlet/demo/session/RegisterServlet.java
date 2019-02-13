@@ -37,14 +37,14 @@ public class RegisterServlet extends HttpServlet {
 		String title = "Session 验证码 实例";
 		String docType = "<!DOCTYPE html>\n";
 		if (c_checkcode != null && s_checkcode != null && c_checkcode.toLowerCase().equals(s_checkcode.toLowerCase())) {
-			System.out.println("验证码成功，处理注册请求！");
+			System.out.println("验证码成功！");
 			out.println(docType + "<html>\n" + "<head><title>" + title + "</title></head>\n"
-					+ "<body bgcolor=\"#f0f0f0\">\n" + "<p>验证码成功，处理注册请求！</p>" + "</body></html>");
+					+ "<body bgcolor=\"#f0f0f0\">\n" + "<p>验证码成功！</p>" + "</body></html>");
 		} else {
-			System.out.println("验证码验证失败！");
+			System.out.println("验证码验证失败或验证码过期！");
 			out.println(docType + "<html>\n" + "<head><title>" + title + "</title></head>\n"
-					+ "<body bgcolor=\"#f0f0f0\">\n" + "<p>验证码验证失败！</p>" + "</body></html>");
+					+ "<body bgcolor=\"#f0f0f0\">\n" + "<p>验证码验证失败或验证码过期！</p>" + "</body></html>");
 		}
-		request.getSession().setMaxInactiveInterval(0);
+		request.getSession().invalidate();
 	}
 }
