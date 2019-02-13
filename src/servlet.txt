@@ -35,16 +35,23 @@
 	javax.servlet.error.request_uri该属性给出有关 URL 调用 Servlet 的信息，信息可被存储，并在存储为 java.lang.String 数据类型后可被分析。
 	javax.servlet.error.exception该属性给出异常产生的信息，信息可被存储，并在存储为 java.lang.Throwable 数据类型后可被分析。
 	javax.servlet.error.servlet_name该属性给出 Servlet 的名称，名称可被存储，并在存储为 java.lang.String 数据类型后可被分析。
-8.		
-
-
-
-
-
-
-
-
-
+8.Servlet Cookie
+	cookie数据存放在客户的浏览器上，存储数据量大小一般为4kb。
+	会话Cookie:不设置过期时间，cookie生命周期为关闭浏览器，cookie就消失了，会话cookie保存在内存中。
+	持久Cookie:利用setMaxAge(time)设置过期时间，cookie保存到硬盘上，可以在不同浏览器共享。
+	添加Cookie：创建Cookie对象，设置Cookie过期时间，在响应头中添加Cookie。
+	读取Cookie：返回Cookie数组，遍历获取cookie.getName()，cookie.getValue()。
+	删除Cookie:cookie.setMaxAge(0)
+9.Servlet Session
+	默认一个浏览器独占一个Session对象,Session技术把用户的数据保存到服务器端用户独占的session中
+	创建Session：HttpSession session = request.getSession(true);false表示session有没有被创建，都不再创建session，true：表示强制创建session
+	设置/读取Session：session.setAttribute(key,value)/session.getAttribute(key)
+	销毁Session：<session-config>
+    				<session-timeout>10</session-timeout>  Tomcat 中默认的 30 分钟超时时间
+				</session-config>
+	手动销毁Session：session.invalidate()/setMaxInactiveInterval(0)
+	实例：session校验图片验证码
+10.
 
 
 

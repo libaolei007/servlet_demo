@@ -24,12 +24,6 @@
 			<param-value>过滤器初始化参数</param-value>
 		</init-param>
 	</filter>
-	
-	<!-- Servlet 过滤器  利用@WebServlet("/ServletDemo")注解，不需要再写<servlet-mapping>-->
-	<servlet>
-		<servlet-name>ServletDemo</servlet-name>
-		<servlet-class>com.servlet.demo.ServletDemo</servlet-class>
-	</servlet>
 
 	<!-- 实现Servlet接口建立Servlet -->
 	<servlet>
@@ -53,8 +47,8 @@
 		<servlet-name>ServletDemo2</servlet-name>
 		<url-pattern>/ServletDemo2</url-pattern>
 	</servlet-mapping>
-	
-	 <!-- 继承HttpServlet建立Servlet -->
+
+	<!-- 继承HttpServlet建立Servlet -->
 	<servlet>
 		<servlet-name>ServletDemo3</servlet-name>
 		<servlet-class>com.servlet.demo.ServletDemo3</servlet-class>
@@ -63,16 +57,7 @@
 		<servlet-name>ServletDemo3</servlet-name>
 		<url-pattern>/ServletDemo3</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>SaveCookie</servlet-name>
-		<servlet-class>com.servlet.demo.SaveCookie</servlet-class>
-	</servlet>
 
-	<servlet>
-		<servlet-name>ReadCookie</servlet-name>
-		<servlet-class>com.servlet.demo.ReadCookie</servlet-class>
-	</servlet>
 	<!-- 异常抓取之后到ErrorHandler中处理 -->
 	<error-page>
 		<error-code>404</error-code>
@@ -82,5 +67,5 @@
 		<exception-type>java.lang.Throwable</exception-type>
 		<location>/ErrorHandler</location>
 	</error-page>
-	
+
 </web-app>

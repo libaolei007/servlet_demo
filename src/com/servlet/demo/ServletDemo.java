@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ServletDemo")
+@WebServlet("/ServletDemo") // <!-- Servlet 过滤器 利用@WebServlet("/ServletDemo")注解，不需要再写web.xml配置 -->
 public class ServletDemo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

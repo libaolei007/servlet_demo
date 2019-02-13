@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>用户注册</title>
+</head>
+<body>
+	<form action="/servlet_demo/RegisterServlet" method="post">
+		<p>
+			<label>用户名：</label><input type="text" name="username">
+		</p>
+		<p>
+			<label>密 码：</label><input type="password" name="password">
+		</p>
+		<p>
+			<label>验证码：</label> <input type="text" name="checkcode"> <img
+				style="cursor: pointer;" src="/servlet_demo/ImageServlet" alt="换一张"
+				onclick="this.src = '/servlet_demo/ImageServlet?' + new Date().getTime()">
+		</p>
+		<input type="submit" value="注册">
+	</form>
+</body>
+</html>
